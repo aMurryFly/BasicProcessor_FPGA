@@ -1,0 +1,29 @@
+library ieee; 
+
+use ieee.std_logic_1164.all; 
+
+entity mux4x1 is 
+
+port( 
+a, b: in std_logic_vector(2 downto 0);
+ s: in std_logic_vector(1 downto 0);  
+
+salmux4x1: out std_logic_vector(2 downto 0) 
+); 
+end entity mux4x1; 
+
+architecture arqmux4x1 of mux4x1 is 
+
+signal cand,cor,cxor,cnot: std_logic_vector(2 downto 0);
+
+begin 
+cand<= a and b; cor<= a or b; cxor<= a xor b; cnot<= not a;
+with s select 
+salmux4x1 <=  
+
+           cand  when "00",
+				 cor when "01",
+		      cxor when "10",
+		      cnot when "11";
+
+end architecture arqmux4x1; 

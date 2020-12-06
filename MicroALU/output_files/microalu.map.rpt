@@ -1,0 +1,648 @@
+Analysis & Synthesis report for microalu
+Sun Dec 06 02:23:02 2020
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: vga_controller:vga_contr
+ 15. Parameter Settings for User Entity Instance: hw_image_generator:generator_vga
+ 16. Port Connectivity Checks: "vga_controller:vga_contr"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Dec 06 02:23:02 2020       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; microalu                                    ;
+; Top-level Entity Name              ; top                                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 462                                         ;
+;     Total combinational functions  ; 391                                         ;
+;     Dedicated logic registers      ; 138                                         ;
+; Total registers                    ; 138                                         ;
+; Total pins                         ; 32                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; top                ; microalu           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                   ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------+---------+
+; disp.vhd                         ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/disp.vhd               ;         ;
+; miromNT.vhd                      ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd            ;         ;
+; conta.vhd                        ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd              ;         ;
+; fetch.vhd                        ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd              ;         ;
+; reloj_lento.vhd                  ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/reloj_lento.vhd        ;         ;
+; dec.vhd                          ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/dec.vhd                ;         ;
+; miromA.vhd                       ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd             ;         ;
+; miromB.vhd                       ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd             ;         ;
+; mem.vhd                          ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mem.vhd                ;         ;
+; mux4x1.vhd                       ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mux4x1.vhd             ;         ;
+; sum.vhd                          ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/sum.vhd                ;         ;
+; UA.vhd                           ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UA.vhd                 ;         ;
+; UL.vhd                           ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UL.vhd                 ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd                ;         ;
+; top.vhd                          ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd                ;         ;
+; display.vhd                      ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd            ;         ;
+; genMhz.vhd                       ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/genMhz.vhd             ;         ;
+; vga_controller.vhd               ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/vga_controller.vhd     ;         ;
+; hw_image_generator.vhd           ; yes             ; User VHDL File  ; C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Estimated Total logic elements              ; 462                   ;
+;                                             ;                       ;
+; Total combinational functions               ; 391                   ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 235                   ;
+;     -- 3 input functions                    ; 52                    ;
+;     -- <=2 input functions                  ; 104                   ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 349                   ;
+;     -- arithmetic mode                      ; 42                    ;
+;                                             ;                       ;
+; Total registers                             ; 138                   ;
+;     -- Dedicated logic registers            ; 138                   ;
+;     -- I/O registers                        ; 0                     ;
+;                                             ;                       ;
+; I/O pins                                    ; 32                    ;
+;                                             ;                       ;
+; Embedded Multiplier 9-bit elements          ; 0                     ;
+;                                             ;                       ;
+; Maximum fan-out node                        ; reloj_lento:reloj|led ;
+; Maximum fan-out                             ; 63                    ;
+; Total fan-out                               ; 1710                  ;
+; Average fan-out                             ; 2.88                  ;
++---------------------------------------------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                    ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                   ; Entity Name        ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------------+--------------+
+; |top                                  ; 391 (0)             ; 138 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 32   ; 0            ; 0          ; |top                                  ; top                ; work         ;
+;    |ALU:ALU|                          ; 24 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|ALU:ALU                          ; ALU                ; work         ;
+;       |UA:arit|                       ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|ALU:ALU|UA:arit                  ; UA                 ; work         ;
+;          |sum:u2|                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|ALU:ALU|UA:arit|sum:u2           ; sum                ; work         ;
+;       |UL:log|                        ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|ALU:ALU|UL:log                   ; UL                 ; work         ;
+;       |display:disp_sal|              ; 19 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|ALU:ALU|display:disp_sal         ; display            ; work         ;
+;    |fetch:fetch|                      ; 68 (0)              ; 30 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fetch:fetch                      ; fetch              ; work         ;
+;       |conta:u2|                      ; 7 (7)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fetch:fetch|conta:u2             ; conta              ; work         ;
+;       |miromNT:u3|                    ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fetch:fetch|miromNT:u3           ; miromNT            ; work         ;
+;       |reloj_lento:u1|                ; 47 (47)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|fetch:fetch|reloj_lento:u1       ; reloj_lento        ; work         ;
+;    |genMhz:genMHz|                    ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|genMhz:genMHz                    ; genMhz             ; work         ;
+;    |hw_image_generator:generator_vga| ; 177 (177)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|hw_image_generator:generator_vga ; hw_image_generator ; work         ;
+;    |mem:cache|                        ; 61 (61)             ; 62 (62)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|mem:cache                        ; mem                ; work         ;
+;    |reloj_lento:reloj|                ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|reloj_lento:reloj                ; reloj_lento        ; work         ;
+;    |vga_controller:vga_contr|         ; 59 (59)             ; 44 (44)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top|vga_controller:vga_contr         ; vga_controller     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                  ;
++----------------------------------------------------+----------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                    ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------------------------+------------------------+
+; ALU:ALU|display:disp_sal|uaparcial2[1]             ; ALU:ALU|display:disp_sal|uaparcial2[0] ; yes                    ;
+; ALU:ALU|display:disp_sal|uaparcial2[0]             ; ALU:ALU|display:disp_sal|uaparcial2[0] ; yes                    ;
+; ALU:ALU|display:disp_sal|uaparcial2[2]             ; ALU:ALU|display:disp_sal|uaparcial2[0] ; yes                    ;
+; ALU:ALU|display:disp_sal|uaparcial[1]              ; ALU:ALU|display:disp_sal|uaparcial[0]  ; yes                    ;
+; ALU:ALU|display:disp_sal|uaparcial[0]              ; ALU:ALU|display:disp_sal|uaparcial[0]  ; yes                    ;
+; ALU:ALU|display:disp_sal|uaparcial[2]              ; ALU:ALU|display:disp_sal|uaparcial[0]  ; yes                    ;
+; ALU:ALU|display:disp_sal|ulparcial[0]              ; fetch:fetch|miromNT:u3|mem_rom         ; yes                    ;
+; ALU:ALU|display:disp_sal|ulparcial[1]              ; fetch:fetch|miromNT:u3|mem_rom         ; yes                    ;
+; ALU:ALU|display:disp_sal|ulparcial[2]              ; fetch:fetch|miromNT:u3|mem_rom         ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                                        ;                        ;
++----------------------------------------------------+----------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                          ;
++-----------------------------------------+---------------------------------------------------+
+; Register name                           ; Reason for Removal                                ;
++-----------------------------------------+---------------------------------------------------+
+; mem:cache|dataInBuf[3]                  ; Stuck at GND due to stuck port data_in            ;
+; vga_controller:vga_contr|column[10..30] ; Stuck at GND due to stuck port data_in            ;
+; vga_controller:vga_contr|row[10..30]    ; Stuck at GND due to stuck port data_in            ;
+; mem:cache|dataOut[3]                    ; Stuck at GND due to stuck port data_in            ;
+; reloj_lento:reloj|conteo[23]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[23] ;
+; reloj_lento:reloj|conteo[17]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[17] ;
+; reloj_lento:reloj|conteo[15]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[15] ;
+; reloj_lento:reloj|conteo[10]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[10] ;
+; reloj_lento:reloj|conteo[9]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[9]  ;
+; reloj_lento:reloj|conteo[8]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[8]  ;
+; reloj_lento:reloj|conteo[7]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[7]  ;
+; reloj_lento:reloj|conteo[5]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[5]  ;
+; reloj_lento:reloj|conteo[4]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[4]  ;
+; reloj_lento:reloj|conteo[3]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[3]  ;
+; reloj_lento:reloj|conteo[2]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[2]  ;
+; reloj_lento:reloj|conteo[1]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[1]  ;
+; reloj_lento:reloj|conteo[0]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[0]  ;
+; reloj_lento:reloj|conteo[24]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[24] ;
+; reloj_lento:reloj|conteo[22]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[22] ;
+; reloj_lento:reloj|conteo[21]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[21] ;
+; reloj_lento:reloj|conteo[20]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[20] ;
+; reloj_lento:reloj|conteo[19]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[19] ;
+; reloj_lento:reloj|conteo[18]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[18] ;
+; reloj_lento:reloj|conteo[16]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[16] ;
+; reloj_lento:reloj|conteo[14]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[14] ;
+; reloj_lento:reloj|conteo[13]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[13] ;
+; reloj_lento:reloj|conteo[12]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[12] ;
+; reloj_lento:reloj|conteo[11]            ; Merged with fetch:fetch|reloj_lento:u1|conteo[11] ;
+; reloj_lento:reloj|conteo[6]             ; Merged with fetch:fetch|reloj_lento:u1|conteo[6]  ;
+; vga_controller:vga_contr|row[9]         ; Stuck at GND due to stuck port data_in            ;
+; Total Number of Removed Registers = 70  ;                                                   ;
++-----------------------------------------+---------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                 ;
++------------------------+---------------------------+----------------------------------------+
+; Register name          ; Reason for Removal        ; Registers Removed due to This Register ;
++------------------------+---------------------------+----------------------------------------+
+; mem:cache|dataInBuf[3] ; Stuck at GND              ; mem:cache|dataOut[3]                   ;
+;                        ; due to stuck port data_in ;                                        ;
++------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 138   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 80    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; vga_controller:vga_contr|row[31]       ; 17      ;
+; vga_controller:vga_contr|row[0]        ; 8       ;
+; vga_controller:vga_contr|column[0]     ; 7       ;
+; vga_controller:vga_contr|column[31]    ; 8       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top|fetch:fetch|conta:u2|present_state[0] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top|mem:cache|dataInBuf[1]                ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top|vga_controller:vga_contr|v_count      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_controller:vga_contr ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; h_pulse        ; 96    ; Signed Integer                               ;
+; h_bp           ; 48    ; Signed Integer                               ;
+; h_pixels       ; 640   ; Signed Integer                               ;
+; h_fp           ; 16    ; Signed Integer                               ;
+; h_pol          ; '0'   ; Enumerated                                   ;
+; v_pulse        ; 2     ; Signed Integer                               ;
+; v_bp           ; 33    ; Signed Integer                               ;
+; v_pixels       ; 480   ; Signed Integer                               ;
+; v_fp           ; 10    ; Signed Integer                               ;
+; v_pol          ; '0'   ; Enumerated                                   ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: hw_image_generator:generator_vga ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; pixels_y       ; 478   ; Signed Integer                                       ;
+; pixels_x       ; 600   ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_controller:vga_contr"                                                              ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; reset_n ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; n_blank ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; n_sync  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 32                          ;
+; cycloneiii_ff         ; 138                         ;
+;     ENA               ; 77                          ;
+;     ENA SLD           ; 3                           ;
+;     plain             ; 58                          ;
+; cycloneiii_lcell_comb ; 392                         ;
+;     arith             ; 42                          ;
+;         2 data inputs ; 42                          ;
+;     normal            ; 350                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 52                          ;
+;         4 data inputs ; 235                         ;
+;                       ;                             ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 5.56                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Sun Dec 06 02:22:54 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off microalu -c microalu
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file disp.vhd
+    Info (12022): Found design unit 1: disp-arqdis File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/disp.vhd Line: 11
+    Info (12023): Found entity 1: disp File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/disp.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file miromnt.vhd
+    Info (12022): Found design unit 1: miromNT-arqmiromNT File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 13
+    Info (12023): Found entity 1: miromNT File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file conta.vhd
+    Info (12022): Found design unit 1: conta-arqconta File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 11
+    Info (12023): Found entity 1: conta File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file fetch.vhd
+    Info (12022): Found design unit 1: fetch-arqfetch File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd Line: 14
+    Info (12023): Found entity 1: fetch File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file reloj_lento.vhd
+    Info (12022): Found design unit 1: reloj_lento-arqrelojlento File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/reloj_lento.vhd Line: 12
+    Info (12023): Found entity 1: reloj_lento File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/reloj_lento.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file dec.vhd
+    Info (12022): Found design unit 1: dec-arqdec File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/dec.vhd Line: 17
+    Info (12023): Found entity 1: dec File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/dec.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file miroma.vhd
+    Info (12022): Found design unit 1: miromA-arqmiromA File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 12
+    Info (12023): Found entity 1: miromA File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file miromb.vhd
+    Info (12022): Found design unit 1: miromB-arqmiromB File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 12
+    Info (12023): Found entity 1: miromB File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mem.vhd
+    Info (12022): Found design unit 1: mem-arqmem File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mem.vhd Line: 18
+    Info (12023): Found entity 1: mem File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mem.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mux4x1.vhd
+    Info (12022): Found design unit 1: mux4x1-arqmux File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mux4x1.vhd Line: 11
+    Info (12023): Found entity 1: mux4x1 File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mux4x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sum.vhd
+    Info (12022): Found design unit 1: sum-arqsum File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/sum.vhd Line: 14
+    Info (12023): Found entity 1: sum File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/sum.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ua.vhd
+    Info (12022): Found design unit 1: UA-arq_UA File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UA.vhd Line: 13
+    Info (12023): Found entity 1: UA File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UA.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ul.vhd
+    Info (12022): Found design unit 1: UL-arq_UL File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UL.vhd Line: 10
+    Info (12023): Found entity 1: UL File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UL.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-arq_alu File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd Line: 13
+    Info (12023): Found entity 1: ALU File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
+    Info (12022): Found design unit 1: top-arqtop File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 25
+    Info (12023): Found entity 1: top File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file display.vhd
+    Info (12022): Found design unit 1: display-arq_disp File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 12
+    Info (12023): Found entity 1: display File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file genmhz.vhd
+    Info (12022): Found design unit 1: genMhz-arqgenMhz File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/genMhz.vhd Line: 10
+    Info (12023): Found entity 1: genMhz File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/genMhz.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file vga_controller.vhd
+    Info (12022): Found design unit 1: vga_controller-behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/vga_controller.vhd Line: 51
+    Info (12023): Found entity 1: vga_controller File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/vga_controller.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file hw_image_generator.vhd
+    Info (12022): Found design unit 1: hw_image_generator-behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 43
+    Info (12023): Found entity 1: hw_image_generator File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 25
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12129): Elaborating entity "genMhz" using architecture "A:arqgenmhz" for hierarchy "genMhz:genMHz" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 43
+Info (12129): Elaborating entity "vga_controller" using architecture "A:behavior" for hierarchy "vga_controller:vga_contr" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 44
+Warning (10541): VHDL Signal Declaration warning at vga_controller.vhd(47): used implicit default value for signal "n_blank" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/vga_controller.vhd Line: 47
+Warning (10541): VHDL Signal Declaration warning at vga_controller.vhd(48): used implicit default value for signal "n_sync" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/vga_controller.vhd Line: 48
+Info (12129): Elaborating entity "fetch" using architecture "A:arqfetch" for hierarchy "fetch:fetch" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 48
+Info (12129): Elaborating entity "reloj_lento" using architecture "A:arqrelojlento" for hierarchy "fetch:fetch|reloj_lento:u1" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd Line: 23
+Info (12129): Elaborating entity "conta" using architecture "A:arqconta" for hierarchy "fetch:fetch|conta:u2" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd Line: 24
+Info (12129): Elaborating entity "miromNT" using architecture "A:arqmiromnt" for hierarchy "fetch:fetch|miromNT:u3" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/fetch.vhd Line: 25
+Warning (10541): VHDL Signal Declaration warning at miromNT.vhd(16): used implicit default value for signal "mem_rom" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 16
+Warning (10492): VHDL Process Statement warning at miromNT.vhd(25): signal "mem_rom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 25
+Info (12129): Elaborating entity "dec" using architecture "A:arqdec" for hierarchy "dec:dec" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 49
+Info (12129): Elaborating entity "miromA" using architecture "A:arqmiroma" for hierarchy "dec:dec|miromA:u1" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/dec.vhd Line: 44
+Warning (10541): VHDL Signal Declaration warning at miromA.vhd(15): used implicit default value for signal "mem_rom" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 15
+Warning (10492): VHDL Process Statement warning at miromA.vhd(23): signal "mem_rom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 23
+Info (12129): Elaborating entity "miromB" using architecture "A:arqmiromb" for hierarchy "dec:dec|miromB:u2" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/dec.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at miromB.vhd(15): used implicit default value for signal "mem_rom" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 15
+Warning (10492): VHDL Process Statement warning at miromB.vhd(23): signal "mem_rom" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 23
+Info (12129): Elaborating entity "ALU" using architecture "A:arq_alu" for hierarchy "ALU:ALU" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 50
+Info (12129): Elaborating entity "UA" using architecture "A:arq_ua" for hierarchy "ALU:ALU|UA:arit" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd Line: 18
+Info (12129): Elaborating entity "mux4x1" using architecture "A:arqmux" for hierarchy "ALU:ALU|UA:arit|mux4x1:u1" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UA.vhd Line: 16
+Info (12129): Elaborating entity "sum" using architecture "A:arqsum" for hierarchy "ALU:ALU|UA:arit|sum:u2" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/UA.vhd Line: 17
+Info (12129): Elaborating entity "UL" using architecture "A:arq_ul" for hierarchy "ALU:ALU|UL:log" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd Line: 19
+Info (12129): Elaborating entity "display" using architecture "A:arq_disp" for hierarchy "ALU:ALU|display:disp_sal" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/ALU.vhd Line: 20
+Warning (10492): VHDL Process Statement warning at display.vhd(25): signal "uaparcial" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at display.vhd(47): signal "uaparcial" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 47
+Warning (10492): VHDL Process Statement warning at display.vhd(52): signal "uaparcial2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at display.vhd(72): signal "uaparcial2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 72
+Warning (10492): VHDL Process Statement warning at display.vhd(94): signal "uaparcial2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at display.vhd(100): signal "ulparcial" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 100
+Warning (10492): VHDL Process Statement warning at display.vhd(105): signal "ulparcial" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 105
+Warning (10492): VHDL Process Statement warning at display.vhd(110): signal "ulparcial" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 110
+Warning (10631): VHDL Process Statement warning at display.vhd(17): inferring latch(es) for signal or variable "uaparcial", which holds its previous value in one or more paths through the process File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Warning (10631): VHDL Process Statement warning at display.vhd(17): inferring latch(es) for signal or variable "uaparcial2", which holds its previous value in one or more paths through the process File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Warning (10631): VHDL Process Statement warning at display.vhd(17): inferring latch(es) for signal or variable "ulparcial", which holds its previous value in one or more paths through the process File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "ulparcial[0]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "ulparcial[1]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "ulparcial[2]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial2[0]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial2[1]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial2[2]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial2[3]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial[0]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial[1]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial[2]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (10041): Inferred latch for "uaparcial[3]" at display.vhd(17) File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+Info (12129): Elaborating entity "disp" using architecture "A:arqdis" for hierarchy "disp:dispA" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 51
+Info (12129): Elaborating entity "mem" using architecture "A:arqmem" for hierarchy "mem:cache" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 54
+Warning (10492): VHDL Process Statement warning at mem.vhd(29): signal "WrEN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mem.vhd Line: 29
+Info (12129): Elaborating entity "hw_image_generator" using architecture "A:behavior" for hierarchy "hw_image_generator:generator_vga" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(220): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 220
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(231): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(242): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 242
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(253): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 253
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(264): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 264
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(275): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 275
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(286): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 286
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(327): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 327
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(338): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 338
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(349): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 349
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(360): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(371): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 371
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(382): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 382
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(393): signal "d0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 393
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(409): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 409
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(420): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 420
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(431): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 431
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(442): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 442
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(453): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 453
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(464): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 464
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(475): signal "d1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 475
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(493): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 493
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(504): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 504
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(515): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 515
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(526): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 526
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(537): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 537
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(548): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 548
+Warning (10492): VHDL Process Statement warning at hw_image_generator.vhd(559): signal "d2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/hw_image_generator.vhd Line: 559
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "dec:dec|miromB:u2|bus_datos[0]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "dec:dec|miromB:u2|bus_datos[1]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "dec:dec|miromB:u2|bus_datos[2]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "dec:dec|miromA:u1|bus_datos[0]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "dec:dec|miromA:u1|bus_datos[1]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "dec:dec|miromA:u1|bus_datos[2]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 9
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[0]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[1]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[2]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[3]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[4]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[5]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[6]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[7]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[8]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[9]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[10]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[11]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[12]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+    Warning (13049): Converted tri-state buffer "fetch:fetch|miromNT:u3|bus_datos[13]" feeding internal logic into a wire File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 8
+Info (276014): Found 4 instances of uninferred RAM logic
+    Info (276013): RAM logic "fetch:fetch|miromNT:u3|mem_rom" is uninferred because MIF is not supported for the selected family File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromNT.vhd Line: 16
+    Info (276013): RAM logic "dec:dec|miromB:u2|mem_rom" is uninferred because MIF is not supported for the selected family File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromB.vhd Line: 15
+    Info (276013): RAM logic "dec:dec|miromA:u1|mem_rom" is uninferred because MIF is not supported for the selected family File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/miromA.vhd Line: 15
+    Info (276004): RAM logic "mem:cache|memory" is uninferred due to inappropriate RAM size File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/mem.vhd Line: 20
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial2[1] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial2[0] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial2[2] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial[1] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial[0] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|uaparcial[2] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|ulparcial[0] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|ulparcial[1] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13012): Latch ALU:ALU|display:disp_sal|ulparcial[2] has unsafe behavior File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/display.vhd Line: 17
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch:fetch|conta:u2|present_state[0] File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/conta.vhd Line: 36
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "dataOut[3]" is stuck at GND File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "cs" File: C:/Users/alfon/Downloads/CompuGrafica_VLSI/VLSI/Teoría/projects/7_MicroALU_VGA/MicroALU/top.vhd Line: 4
+Info (21057): Implemented 514 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 23 output pins
+    Info (21061): Implemented 482 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 92 warnings
+    Info: Peak virtual memory: 4835 megabytes
+    Info: Processing ended: Sun Dec 06 02:23:02 2020
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+

@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_UNSIGNED.all;
+
+entity miromNT is port(
+	busdir: in std_logic_vector(3 downto 0);
+	cs: in std_logic;
+	bus_datos: out std_logic_vector(15 downto 0);
+	ledfetch: out std_logic_vector(5 downto 0)
+);
+end miromNT;
+
+architecture arqmiromNT of miromNT is
+
+type memoria is array (15 downto 0) of std_logic_vector(15 downto 0);
+signal mem_rom : memoria;
+attribute ram_init_file: string;
+attribute ram_init_file of mem_rom_ signal is "instruc.mif"
+
+begin
