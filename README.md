@@ -17,13 +17,6 @@ Alumnos:
 
 - Funcionamiento [click here](https://youtu.be/G3pjsB8_x9E)
 
-
-## ✅ Documentación y links de referencia 
-
-1. [Diseño de la casa](https://verplanos.com/plano-de-casa-grande-con-piscina-de-estilo-mediterraneo/)
-2. Herramienta de diseño arquitectónico: [Floorplanner](https://www.floorplanner.com/)
-
-
 ## 🤔 Dudas o comentarios
 
 1. Para cualquier duda, comentario o bug sin duda reportalo mediante un issue
